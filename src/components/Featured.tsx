@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import Margherita from "@/assets/featured/Margherita.png";
 import Margherita2 from "@/assets/featured/Margherita2.png";
 import Osso from "@/assets/featured/Osso.png";
-import Osso2 from "@/assets/featured/Osso2.png";
+import Osso2 from "@/assets/featured/osso2.png";
 import Tiramisu from "@/assets/featured/Tiramisu.png";
 import Tiramisu2 from "@/assets/featured/Tiramisu2.png";
 import { useNavigate } from "react-router-dom";
