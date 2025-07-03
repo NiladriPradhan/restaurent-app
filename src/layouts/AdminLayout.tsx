@@ -1,5 +1,4 @@
-// src/layouts/AdminLayout.jsx
-import React from "react";
+
 import { Outlet, Link, useLocation } from "react-router-dom";
 import {
   Home,
@@ -10,7 +9,13 @@ import {
 } from "lucide-react";
 import clsx from "clsx";
 
-const navLinks = [
+interface NavLink {
+  name: string;
+  path: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+
+const navLinks:NavLink[] = [
   { name: "Dashboard", path: "/admin", icon: LayoutDashboard },
   { name: "Orders", path: "/admin/orders", icon: ClipboardList },
   { name: "Manage Food", path: "/admin/food", icon: Utensils },

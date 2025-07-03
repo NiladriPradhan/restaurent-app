@@ -35,8 +35,9 @@ import San from "@/assets/images/San.png";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "@/redux/store";
 import { addToCart, removeFromCart } from "@/features/cart/cartSlice";
+import type { Categories, MenuItem } from "@/types/menu";
 
-const menuItems = [
+const menuItems: MenuItem[] = [
   // Appetizers
   {
     id: 1,
@@ -278,7 +279,7 @@ const menuItems = [
   },
 ];
 
-const categories = [
+const categories: Categories[] = [
   { id: "all", name: "All Items" },
   { id: "appetizers", name: "Appetizers" },
   { id: "pasta", name: "Pasta" },
@@ -290,20 +291,18 @@ const categories = [
 
 export default function Menu() {
   const dispatch = useDispatch();
-  const cart = useSelector((state: RootState) => state.cart);
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [debounce, setDebounce] = useState(searchTerm);
-  const [addingItems, setAddingItems] = useState<{ [id: string]: boolean }>({});
-  const [addedItems, setAddedItems] = useState<{ [id: string]: boolean }>({});
   const cartItems = useSelector((state: RootState) => state.cart.items);
+
   const isItemInCart = (id: string) => {
     return cartItems.some((cartItem) => cartItem.id === id);
   };
 
-  const handleCartToggle = (item) => {
+  const handleCartToggle = (item: MenuItem): void => {
     if (isItemInCart(item.id)) {
-      dispatch(removeFromCart(item.id)); // make sure removeFromCart action exists
+      dispatch(removeFromCart(item.id));
     } else {
       dispatch(addToCart({ ...item, quantity: 1 }));
     }
@@ -316,15 +315,6 @@ export default function Menu() {
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  // const filteredItems = menuItems.filter((item) => {
-  //   const matchesCategory =
-  //     activeCategory === "all" || item.category === activeCategory;
-  //   const matchesSearch =
-  //     item.name.toLowerCase().includes(debounce.toLowerCase()) ||
-  //     item.description.toLowerCase().includes(debounce.toLowerCase());
-  //   return matchesCategory && matchesSearch;
-  // });
-
   const filteredItems = useMemo(() => {
     return menuItems.filter((item) => {
       const matchesCategory =
@@ -334,7 +324,7 @@ export default function Menu() {
         item.description.toLowerCase().includes(debounce.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [menuItems, activeCategory, debounce]);
+  }, [activeCategory, debounce]);
 
   const isSearching = searchTerm !== debounce;
 
@@ -524,6 +514,9 @@ export default function Menu() {
                             name: item.name,
                             image: item.image,
                             price: item.price,
+                            description: "",
+                            category: "",
+                            badges: [],
                           })
                         }
                         className={`flex-1 ${

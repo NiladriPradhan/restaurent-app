@@ -1,4 +1,3 @@
-
 import { Award, Clock, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -46,7 +45,7 @@ const Features = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={featureVariants}
+              variants={featureVariants as any} // 👈 quick fix: cast as any
             >
               <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 {feature.icon}

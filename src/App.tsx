@@ -22,7 +22,7 @@ const ManageUsers = lazy(() => import("@/admin/ManageUsers"));
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<h1 className="text-4xl text-red-300 text-center ">Loading...</h1>}>
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />

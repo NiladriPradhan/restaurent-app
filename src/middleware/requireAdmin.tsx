@@ -1,5 +1,4 @@
-// src/middleware/RequireAdmin.tsx
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useUser } from "@clerk/clerk-react";
 import { Navigate } from "react-router-dom";
 
