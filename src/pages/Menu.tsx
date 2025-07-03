@@ -40,7 +40,7 @@ import type { Categories, MenuItem } from "@/types/menu";
 const menuItems: MenuItem[] = [
   // Appetizers
   {
-    id: 1,
+    id: "1",
     name: "Bruschetta Classica",
     description:
       "Toasted bread topped with fresh tomatoes, basil, garlic, and extra virgin olive oil",
@@ -51,7 +51,7 @@ const menuItems: MenuItem[] = [
     popular: true,
   },
   {
-    id: 2,
+    id: "2",
     name: "Antipasto Platter",
     description:
       "Selection of cured meats, cheeses, olives, and marinated vegetables",
@@ -61,7 +61,7 @@ const menuItems: MenuItem[] = [
     badges: [],
   },
   {
-    id: 3,
+    id: "3",
     name: "Calamari Fritti",
     description:
       "Crispy fried squid rings served with marinara sauce and lemon",
@@ -71,7 +71,7 @@ const menuItems: MenuItem[] = [
     badges: [],
   },
   {
-    id: 4,
+    id: "4",
     name: "Caprese Salad",
     description:
       "Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze",
@@ -83,7 +83,7 @@ const menuItems: MenuItem[] = [
 
   // Pasta
   {
-    id: 5,
+    id: "5",
     name: "Spaghetti Carbonara",
     description:
       "Classic Roman pasta with eggs, pancetta, pecorino cheese, and black pepper",
@@ -94,7 +94,7 @@ const menuItems: MenuItem[] = [
     popular: true,
   },
   {
-    id: 6,
+    id: "6",
     name: "Fettuccine Alfredo",
     description:
       "Fresh fettuccine in creamy parmesan sauce with butter and herbs",
@@ -104,7 +104,7 @@ const menuItems: MenuItem[] = [
     badges: ["vegetarian"],
   },
   {
-    id: 7,
+    id: "7",
     name: "Penne Arrabbiata",
     description:
       "Penne pasta in spicy tomato sauce with garlic, red peppers, and fresh basil",
@@ -114,7 +114,7 @@ const menuItems: MenuItem[] = [
     badges: ["vegetarian", "spicy"],
   },
   {
-    id: 8,
+    id: "8",
     name: "Lasagna della Casa",
     description:
       "Layers of pasta, meat sauce, ricotta, and mozzarella baked to perfection",
@@ -126,7 +126,7 @@ const menuItems: MenuItem[] = [
 
   // Pizza
   {
-    id: 9,
+    id: "9",
     name: "Margherita",
     description:
       "San Marzano tomatoes, fresh mozzarella, basil, and extra virgin olive oil",
@@ -137,7 +137,7 @@ const menuItems: MenuItem[] = [
     popular: true,
   },
   {
-    id: 10,
+    id: "10",
     name: "Pepperoni",
     description: "Classic pepperoni with mozzarella cheese and tomato sauce",
     price: 20,
@@ -146,7 +146,7 @@ const menuItems: MenuItem[] = [
     badges: [],
   },
   {
-    id: 11,
+    id: "11",
     name: "Quattro Stagioni",
     description:
       "Four seasons pizza with mushrooms, artichokes, ham, and olives",
@@ -156,7 +156,7 @@ const menuItems: MenuItem[] = [
     badges: [],
   },
   {
-    id: 12,
+    id: "12",
     name: "Prosciutto e Funghi",
     description: "Prosciutto di Parma, mushrooms, mozzarella, and truffle oil",
     price: 26,
@@ -167,7 +167,7 @@ const menuItems: MenuItem[] = [
 
   // Main Courses
   {
-    id: 13,
+    id: "13",
     name: "Osso Buco",
     description: "Braised veal shanks with saffron risotto and gremolata",
     price: 32,
@@ -177,7 +177,7 @@ const menuItems: MenuItem[] = [
     popular: true,
   },
   {
-    id: 14,
+    id: "14",
     name: "Chicken Parmigiana",
     description:
       "Breaded chicken breast with marinara sauce and melted mozzarella",
@@ -187,7 +187,7 @@ const menuItems: MenuItem[] = [
     badges: [],
   },
   {
-    id: 15,
+    id: "15",
     name: "Branzino al Sale",
     description:
       "Mediterranean sea bass baked in sea salt with herbs and lemon",
@@ -197,7 +197,7 @@ const menuItems: MenuItem[] = [
     badges: [],
   },
   {
-    id: 16,
+    id: "16",
     name: "Eggplant Parmigiana",
     description:
       "Layers of eggplant, marinara sauce, and cheese baked until golden",
@@ -209,7 +209,7 @@ const menuItems: MenuItem[] = [
 
   // Desserts
   {
-    id: 17,
+    id: "17",
     name: "Tiramisu",
     description:
       "Classic Italian dessert with espresso-soaked ladyfingers and mascarpone",
@@ -220,7 +220,7 @@ const menuItems: MenuItem[] = [
     popular: true,
   },
   {
-    id: 18,
+    id: "18",
     name: "Panna Cotta",
     description: "Silky vanilla custard with berry compote",
     price: 10,
@@ -229,7 +229,7 @@ const menuItems: MenuItem[] = [
     badges: ["vegetarian"],
   },
   {
-    id: 19,
+    id: "19",
     name: "Cannoli Siciliani",
     description: "Crispy shells filled with sweet ricotta and chocolate chips",
     price: 11,
@@ -238,7 +238,7 @@ const menuItems: MenuItem[] = [
     badges: ["vegetarian"],
   },
   {
-    id: 20,
+    id: "20",
     name: "Gelato Selection",
     description:
       "Three scoops of artisanal gelato - vanilla, chocolate, and pistachio",
@@ -250,7 +250,7 @@ const menuItems: MenuItem[] = [
 
   // Beverages
   {
-    id: 21,
+    id: "21",
     name: "Espresso",
     description: "Rich and bold Italian coffee",
     price: 4,
@@ -259,7 +259,7 @@ const menuItems: MenuItem[] = [
     badges: [],
   },
   {
-    id: 22,
+    id: "22",
     name: "Cappuccino",
     description: "Espresso with steamed milk and foam",
     price: 5,
@@ -269,7 +269,7 @@ const menuItems: MenuItem[] = [
   },
 
   {
-    id: 24,
+    id: "24",
     name: "San Pellegrino",
     description: "Sparkling mineral water",
     price: 4,
