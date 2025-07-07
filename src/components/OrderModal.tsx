@@ -5,8 +5,7 @@ import { toast } from "react-toastify";
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-
-  item: MenuItem;
+  item: MenuItem | null;
 };
 
 const OrderModal: React.FC<Props> = ({ isOpen, onClose, item }) => {

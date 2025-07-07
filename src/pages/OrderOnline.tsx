@@ -1,6 +1,7 @@
 import  { useState } from "react";
 import { menuItems } from "@/data/menuItem";
-import OrderModal from "@/components/OrderModal"; // Import modal
+import OrderModal from "@/components/OrderModal";
+
 
 const OrderOnline = () => {
   const [selectedItem, setSelectedItem] = useState<null | typeof menuItems[0]>(null);
