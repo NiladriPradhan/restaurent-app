@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { ToastContainer } from "react-toastify";
 
 const Home = lazy(() => import("./pages/Home"));
 const Menu = lazy(() => import("./pages/Menu"));
@@ -92,6 +93,7 @@ function App() {
           />
         </Route>
       </Routes>
+        <ToastContainer position="top-right" autoClose={3000} />
     </Suspense>
   );
 }

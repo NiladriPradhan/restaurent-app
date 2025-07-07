@@ -1,21 +1,20 @@
 import type { MenuItem } from "@/types/menu";
 import React from "react";
+import { toast } from "react-toastify";
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  //   item: {
-  //     id: number;
-  //     name: string;
-  //     price: number;
-  //     image: string;
-  //   } | null;
+
   item: MenuItem;
 };
 
 const OrderModal: React.FC<Props> = ({ isOpen, onClose, item }) => {
   if (!isOpen || !item) return null;
-
+  const handlePlaceOrder = () => {
+    toast.success(`✅ Order placed for ${item.name}`);
+    onClose();
+  };
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
       <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative animate-fadeIn">
@@ -60,10 +59,7 @@ const OrderModal: React.FC<Props> = ({ isOpen, onClose, item }) => {
         </div>
 
         <button
-          onClick={() => {
-            alert("Order placed successfully!");
-            onClose();
-          }}
+          onClick={handlePlaceOrder}
           className="mt-6 w-full bg-amber-600 hover:bg-amber-700 text-white py-2 rounded-lg"
         >
           Pay & Confirm
