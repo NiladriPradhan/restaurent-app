@@ -27,14 +27,22 @@ import CouponSection from "@/components/checkout/CouponSection";
 import OrderConfirmation from "@/components/checkout/OrderConfirmation";
 import PaymentSection from "@/components/checkout/PaymentSection";
 
+
+type Coupon = {
+  code: string;
+  discount: number;
+};
+
+
 export default function Checkout() {
   const [orderType, setOrderType] = useState("delivery");
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [isProcessing, setIsProcessing] = useState(false);
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [couponCode, setCouponCode] = useState("");
-  const [appliedCoupon, setAppliedCoupon] = useState(null);
+  const [appliedCoupon, setAppliedCoupon] = useState<Coupon | null>(null);
 
+  
   // Sample cart items
   const [cartItems, setCartItems] = useState([
     {

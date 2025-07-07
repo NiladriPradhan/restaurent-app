@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { RadioGroup } from "@radix-ui/react-radio-group";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { RadioGroupItem } from "./ui/radio-group";
@@ -5,6 +8,8 @@ import { Label } from "./ui/label";
 import { MapPin, ShoppingCart, Users } from "lucide-react";
 
 const OrderType = () => {
+  const [orderType, setOrderType] = useState("delivery");
+
   return (
     <Card>
       <CardHeader>

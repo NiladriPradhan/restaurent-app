@@ -32,10 +32,10 @@ const ItemDetails = () => {
     setShowModal(true);
   };
 
-  const confirmOrder = () => {
-    setShowModal(false);
-    alert("✅ Order placed successfully!");
-  };
+  // const confirmOrder = () => {
+  //   setShowModal(false);
+  //   alert("✅ Order placed successfully!");
+  // };
 
   return (
     <div className="max-w-2xl mx-auto p-4">

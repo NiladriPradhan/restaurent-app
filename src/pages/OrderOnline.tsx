@@ -1,53 +1,29 @@
-import { useState } from "react";
-import { menuItems } from "@/data/menuItem";
-import OrderModal from "@/components/OrderModal"; // Import modal
+import type { MenuItem } from "@/types/menu";
 
-const OrderOnline = () => {
-  const [selectedItem, setSelectedItem] = useState<null | typeof menuItems[0]>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+type OrderModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  item: MenuItem | null;
+};
 
-  const openModal = (item: typeof menuItems[0]) => {
-    setSelectedItem(item);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedItem(null);
-  };
+const OrderModal = ({ isOpen, onClose, item }: OrderModalProps) => {
+  if (!isOpen || !item) return null; // Prevent render if closed or item is null
 
   return (
-    <div className="min-h-screen py-16 px-4 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-10">Order Online</h1>
-
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {menuItems.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-2xl shadow-md hover:shadow-lg transition p-4 flex flex-col"
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="rounded-xl h-48 w-full object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
-              <p className="text-gray-600 mb-4">${item.price.toFixed(2)}</p>
-              <button
-                onClick={() => openModal(item)}
-                className="mt-auto bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
-              >
-                Order Now
-              </button>
-            </div>
-          ))}
-        </div>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+      <div className="bg-white p-6 rounded-xl max-w-md w-full relative">
+        <button onClick={onClose} className="absolute top-2 right-2 text-gray-500 hover:text-black">
+          ×
+        </button>
+        <img src={item.image} alt={item.name} className="rounded-lg mb-4" />
+        <h2 className="text-2xl font-bold mb-2">{item.name}</h2>
+        <p className="text-gray-600 mb-4">${item.price.toFixed(2)}</p>
+        <button className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700">
+          Add to Cart
+        </button>
       </div>
-
-      <OrderModal isOpen={isModalOpen} onClose={closeModal} item={selectedItem} />
     </div>
   );
 };
 
-export default OrderOnline;
+export default OrderModal;
