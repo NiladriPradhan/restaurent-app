@@ -47,8 +47,7 @@ const testimonials = [
     id: 6,
     name: "John Carter",
     rating: 5,
-    comment:
-      "Great value for money. The ingredients taste fresh and vibrant!",
+    comment: "Great value for money. The ingredients taste fresh and vibrant!",
     date: "3 weeks ago",
   },
 ];
@@ -74,44 +73,46 @@ const Testimonials = () => {
         </motion.div>
 
         {/* Scrollable Cards */}
-        <div className="overflow-x-auto">
-          <div className="flex gap-6 md:gap-8 px-1 md:px-4 snap-x snap-mandatory scroll-smooth">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="min-w-[280px] md:min-w-[360px] snap-start"
-              >
-                <Card className="p-6 border-none shadow-md hover:shadow-lg transition-shadow rounded-2xl bg-white h-full">
-                  <CardContent className="p-0 h-full flex flex-col justify-between">
-                    <div className="flex items-center mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-5 w-5 fill-amber-400 text-amber-400"
-                        />
-                      ))}
-                    </div>
-                    <p className="text-gray-600 mb-4 italic">
-                      "{testimonial.comment}"
-                    </p>
-                    <div className="flex justify-between items-center mt-auto">
-                      <span className="font-semibold text-gray-900">
-                        {testimonial.name}
-                      </span>
-                      <span className="text-sm text-gray-500">
-                        {testimonial.date}
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+       {/* Scrollable Cards */}
+<div className="overflow-x-auto overflow-y-hidden no-scrollbar">
+  <div className="flex gap-6 md:gap-8 px-1 md:px-4 snap-x snap-mandatory scroll-smooth">
+    {testimonials.map((testimonial, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="min-w-[280px] md:min-w-[360px] snap-start"
+      >
+        <Card className="p-6 border-none shadow-md hover:shadow-lg transition-shadow rounded-2xl bg-white h-full">
+          <CardContent className="p-0 h-full flex flex-col justify-between">
+            <div className="flex items-center mb-4">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="h-5 w-5 fill-amber-400 text-amber-400"
+                />
+              ))}
+            </div>
+            <p className="text-gray-600 mb-4 italic">
+              "{testimonial.comment}"
+            </p>
+            <div className="flex justify-between items-center mt-auto">
+              <span className="font-semibold text-gray-900">
+                {testimonial.name}
+              </span>
+              <span className="text-sm text-gray-500">
+                {testimonial.date}
+              </span>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );

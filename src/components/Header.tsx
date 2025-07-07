@@ -1,9 +1,8 @@
-
 "use client";
 
 import { useState } from "react";
 import { Menu, Phone, MapPin, Clock, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   SignedIn,
   SignedOut,
@@ -18,7 +17,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { signOut } = useClerk();
   const { user } = useUser();
-
+  const navigate = useNavigate();
   const isAdmin = user?.publicMetadata?.role === "admin";
 
   const navigationItems = [
@@ -54,6 +53,7 @@ export default function Header() {
             </div>
             <div className="ml-auto">
               <Button
+              onClick={()=> navigate("/order")}
                 size="sm"
                 className="bg-amber-600 hover:bg-amber-700 text-white"
               >
@@ -74,9 +74,7 @@ export default function Header() {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Bella Vista</h1>
-              <p className="text-sm text-gray-600">
-                Authentic Italian Cuisine
-              </p>
+              <p className="text-sm text-gray-600">Authentic Italian Cuisine</p>
             </div>
           </Link>
 
@@ -104,7 +102,6 @@ export default function Header() {
             <SignedIn>
               <UserButton afterSignOutUrl="/" />
             </SignedIn>
-            
           </div>
 
           {/* Mobile Menu Button */}
@@ -140,9 +137,7 @@ export default function Header() {
             </div>
             <div>
               <h2 className="font-bold text-gray-900">Bella Vista</h2>
-              <p className="text-sm text-gray-600">
-                Authentic Italian Cuisine
-              </p>
+              <p className="text-sm text-gray-600">Authentic Italian Cuisine</p>
             </div>
           </div>
 
@@ -183,7 +178,6 @@ export default function Header() {
                   Logout
                 </Button>
               </div>
-              
             </SignedIn>
           </div>
 

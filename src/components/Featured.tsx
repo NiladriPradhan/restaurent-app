@@ -103,7 +103,7 @@ const Featured = () => {
                     {dish.description}
                   </p>
 
-                  <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white text-sm rounded-full">
+                  <Button onClick={() => navigate("/order")} className="w-full bg-amber-600 hover:bg-amber-700 text-white text-sm rounded-full">
                     Order Now
                   </Button>
                 </CardContent>

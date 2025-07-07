@@ -5,6 +5,8 @@ const Home = lazy(() => import("./pages/Home"));
 const Menu = lazy(() => import("./pages/Menu"));
 const Cart = lazy(() => import("./pages/Cart"));
 const Checkout = lazy(() => import("./pages/Checkout"));
+const OrderOnline = lazy(() => import("./pages/OrderOnline"));
+const ItemDetails = lazy(() => import("./pages/ItemDetails"));
 
 const AdminLayout = lazy(() => import("./layouts/AdminLayout"));
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -20,9 +22,14 @@ const AuthGuard = lazy(() => import("@/clerk/AuthGaurd"));
 const ManageFood = lazy(() => import("@/admin/ManageFood"));
 const ManageUsers = lazy(() => import("@/admin/ManageUsers"));
 
+const NetworkStatusWarning = lazy(() => import("@/components/NetworkStatusWarning"));
+const BookingDetailsPage = lazy(()=> import("./pages/BookingDetailsPage"));
+const ReservationPage = lazy(()=> import("./pages/ReservationPage"));
+
 function App() {
   return (
     <Suspense fallback={<h1 className="text-4xl text-red-300 text-center ">Loading...</h1>}>
+      <NetworkStatusWarning/>
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
@@ -41,8 +48,12 @@ function App() {
         >
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
+           <Route path="/menu/:id" element={<ItemDetails />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<OrderOnline />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/reservation" element={<ReservationPage />} />
+          <Route path="/reservation-details" element={<BookingDetailsPage />} />
         </Route>
 
 

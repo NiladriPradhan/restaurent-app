@@ -1,4 +1,3 @@
-
 export interface MenuItem {
   id: string;
   name: string;
@@ -10,9 +9,4 @@ export interface MenuItem {
   popular?: boolean;
   quantity?: number;
 }
-
-
-export interface Categories{
-  id: string;
-  name: string
-}
+import type { MenuItem } from "@/types/menu";
