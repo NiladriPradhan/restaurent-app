@@ -7,7 +7,7 @@ type OrderModalProps = {
 };
 
 const OrderModal = ({ isOpen, onClose, item }: OrderModalProps) => {
-  if (!isOpen || !item) return null; // Prevent render if closed or item is null
+  if (!isOpen || !item) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">

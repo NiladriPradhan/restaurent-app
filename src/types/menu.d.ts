@@ -9,4 +9,3 @@ export interface MenuItem {
   popular?: boolean;
   quantity?: number;
 }
-import type { MenuItem } from "@/types/menu";
